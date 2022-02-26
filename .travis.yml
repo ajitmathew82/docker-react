@@ -1,23 +1,21 @@
 sudo: required
 language: generic
-
 services:
-  - docker
-
+- docker
 before_install:
-  - docker build -t ajitmathew82/docker-react -f Dockerfile.dev .
-
+- docker build -t ajitmathew82/docker-react -f Dockerfile.dev .
 script:
-  - docker run -e CI=true ajitmathew82/docker-react npm run test
-
+- docker run -e CI=true ajitmathew82/docker-react npm run test
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "dockerreactajitFeb2022"
-  env: "Dockerreactajitfeb2022-env"
-  bucket_name: "elasticbeanstalk-us-east-1-163257583868"
-  bucket_path: "dockerreactajitFeb2022"
+  region: us-east-1
+  app: dockerreactajitFeb2022
+  env: Dockerreactajitfeb2022-env
+  bucket_name: elasticbeanstalk-us-east-1-163257583868
+  bucket_path: dockerreactajitFeb2022
   on:
     branch: master
-  access_key_id: $AWS_ACCESS_KEY2
-  secret_access_key: $AWS_SECRET_KEY2
+  access_key_id: 
+    - secure: CjgJ4vL+pTY1B8BJfeXrzrTloxKtwn0a0rWs/mhiAnWA85LxZ+BwMshwUvAEHd8oBsvWJXEf6ZHioSJxb1tbA5iOBhfdwvGIlLwvIjJexiNxUiB9drZwYzZvPM7cj+n8gprH9dzYM78sxTBy8k1ZAD3123R4kEAIeCuekx9Rll+IoCf3W32liUSjqwz5frdQJVcGtwDAlf/zXVd5vZfIbgBXsqCg3uNsONhdrDVyZBkIfVWADAWu1Xuhiveqm1LFW6BlTUYr2MTm96i06rdgekmKpBQ2nvqHIQ0oE0aewYV/iYEoiVjH8LWQ8Fc3dEsf0O9Hf17//vBPEL61n20fydlHj154OFKXNi6iayUoeC+i9aE0BvZ+HepEbLs5fKFWKz7PX1wuxDlsUbFz5lNMiM6uPqzNU8NlFOczvG7r+uamtbg4G5TUOhIr8jU4KS5NYc84VRR/C2qkJ8+8CO3ICxZO77BQLKqXcyELUQC4L8rGkc9JgbN1c8ysIF/aicQRCsD5Lw9uiZRL1/t//oM7+uAvYd4ELSJsmLXzyk2aYZ60K9KuPpvIPnKWpx9wcy3C5KCswEOuPfYJ8XYEVKzspS5nFIQxnBJ2F9B/pI7sHCgNIYF4JiLnqK9HfviSaUTJBjlkOTe8qA23X/50iPytpIxaDHtJdnkoycUVpvkRy1A=
+  secret_access_key:
+    - secure: FwXUeWySBM2yC63IKAVowRYWRMr/QqC88Pc1ez2+EE9l7yOMJv6VLa2PNUiaM9oGPSUaVJ2an8A/PkIjS2Ihn5ftbfXcf3G6RMpaTGnRBZKYb2e94/ZsKv4RAGHziKS7q3Wh+T49HPl9oMDpXXiTKdK0W2b7QpJ+bjsIif1F6W3btmZqdFZKkI0adYGkVU754KIA1X5obU0njD5qcO2R36eaaOAowrWlxnYZH/eJaJ+p3NcnuiqZeMPMthy/DcjW1NYAZQZU5zJnsTxL2PjGirE4dd14jcCVq9XZTrErYprLPb5l792V6b59IC6UZ1KMGtOXtkyqmocfpVo2G2u9hPDeo2YFu+zPVUAMvONPdpR4SsNf8gGpmvcupAvJWRk81CPSUZOaw1Eu6XmyFMsngViGtwwRb6LwOIL4Qc4vjRv7rvYN+Z5hjjilw0sW2BM/uXSzaqMxWk2/Q0QWkC6Gf/2J3lujpXCOQni913Cl8r3lZkGAszMPE8qb95uaSmnNFZQjDoZ+OSxk2WF3qif3PiY6lPuJnAsBE+2y1q1AqwKDCX6Cjqh/b6rya7LFsMeE2axMV+Vl2ZgNQK48hZ+NpjgOsMxYfByDr1XDdRmeico19hl7IXbbB7RESwrAWj+2z2UIbOXS1ZduXwGszNT1L2kh0fkVKuRt4AW3ZJzstd4=
