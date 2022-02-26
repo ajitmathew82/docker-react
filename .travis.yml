@@ -16,7 +16,7 @@ deploy:
   app: "dockerreactstephenfeb2022"
   env: "Dockerreactstephenfeb2022-env"
   bucket_name: "elasticbeanstalk-us-east-1-163257583868"
-  bucket_path: "dockerreactstephenfeb2022""
+  bucket_path: "dockerreactstephenfeb2022"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
